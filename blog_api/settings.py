@@ -122,7 +122,7 @@ REST_FRAMEWORK = {
         'rest_framework.filters.OrderingFilter',               
     ],
 
-    'EXCEPTION_HANDLER': 'blog_api.exceptions.custom_exception_handler',
+    # 'EXCEPTION_HANDLER': 'blog_api.exceptions.custom_exception_handler',
 }
 
 MEDIA_URL = '/media/'
