@@ -1,6 +1,8 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+from  datetime import timedelta
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,6 +32,7 @@ INSTALLED_APPS = [
     # Third-party
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
     'django_filters',
 
     # Our apps
@@ -122,6 +125,14 @@ REST_FRAMEWORK = {
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME':  timedelta(minutes=60),   
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),        
+    'ROTATE_REFRESH_TOKENS':  True,                    
+    'BLACKLIST_AFTER_ROTATION': True,                   
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
